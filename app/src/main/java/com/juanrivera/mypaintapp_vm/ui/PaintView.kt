@@ -12,12 +12,12 @@ import com.juanrivera.mypaintapp_vm.ui.MainActivity.Companion.paintBrush
 import com.juanrivera.mypaintapp_vm.ui.MainActivity.Companion.path
 
 class PaintView: View {
-    var params : ViewGroup.LayoutParams? = null
+    private var params : ViewGroup.LayoutParams? = null
 
     companion object{
         var pathList = ArrayList<android.graphics.Path>()
         var colorList = ArrayList<Int>()
-        var currentBrush = Color.BLACK;
+        var currentBrush = Color.BLACK
     }
     constructor(context: Context) : this(context, null){
         init()
@@ -34,7 +34,7 @@ class PaintView: View {
         paintBrush.color = currentBrush
         paintBrush.style = Paint.Style.STROKE
         paintBrush.strokeJoin = Paint.Join.ROUND
-        paintBrush.strokeWidth = 8f;
+        paintBrush.strokeWidth = 8f
 
         params = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
     }
@@ -56,12 +56,12 @@ class PaintView: View {
             else -> return false
         }
         postInvalidate()
-        return false;
+        return false
     }
 
     override fun onDraw(canvas: Canvas) {
         for(i in pathList.indices){
-            paintBrush.setColor(colorList[i])
+            paintBrush.color = colorList[i]
             canvas.drawPath(pathList[i], paintBrush)
             invalidate()
         }

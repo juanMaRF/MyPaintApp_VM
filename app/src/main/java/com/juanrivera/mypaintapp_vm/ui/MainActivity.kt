@@ -8,7 +8,6 @@ import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.juanrivera.mypaintapp_vm.R
 import com.juanrivera.mypaintapp_vm.databinding.ActivityMainBinding
 import com.juanrivera.mypaintapp_vm.ui.PaintView.Companion.colorList
 import com.juanrivera.mypaintapp_vm.ui.PaintView.Companion.currentBrush
@@ -24,7 +23,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mainBinding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        val splashscreen = installSplashScreen()
+        installSplashScreen()
         super.onCreate(savedInstanceState)
         mainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mainBinding.root)
@@ -37,17 +36,17 @@ class MainActivity : AppCompatActivity() {
 
         redBtn.setOnClickListener{
             Toast.makeText(this,"Rojo", Toast.LENGTH_SHORT).show()
-            paintBrush.setColor(Color.RED)
+            paintBrush.color = Color.RED
             currentColor(paintBrush.color)
         }
         blueBtn.setOnClickListener {
             Toast.makeText(this,"Azul", Toast.LENGTH_SHORT).show()
-            paintBrush.setColor(Color.BLUE)
+            paintBrush.color = Color.BLUE
             currentColor(paintBrush.color)
         }
         blackBtn.setOnClickListener {
             Toast.makeText(this,"Negro", Toast.LENGTH_SHORT).show()
-            paintBrush.setColor(Color.BLACK)
+            paintBrush.color = Color.BLACK
             currentColor(paintBrush.color)
         }
         eraser.setOnClickListener {
